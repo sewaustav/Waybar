@@ -142,7 +142,7 @@ void Workspaces::update() {
 }
 
 Gtk::Button& Workspaces::addButton(const Json::Value& ws) {
-  std::string name;
+    std::string name;
   if (ws["name"]) {
     name = ws["name"].asString();
   } else {

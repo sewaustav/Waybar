@@ -20,11 +20,12 @@ class Workspaces : public AModule, public EventHandler {
   void doUpdate();
   Gtk::Button& addButton(const Json::Value& ws);
   std::string getIcon(const std::string& value, const Json::Value& ws);
+  void createWorkspace(const Json::Value& data);
 
   const Bar& bar_;
   Gtk::Box box_;
   // Map from niri workspace id to button.
-  std::unordered_map<uint64_t, Gtk::Button> buttons_;
+  std::vector<std::unique_ptr<Workspace>> workspaces_;
 };
 
 }  // namespace waybar::modules::niri
