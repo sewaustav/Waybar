@@ -340,6 +340,7 @@ if get_option('niri')
         'src/modules/niri/language.cpp',
         'src/modules/niri/window.cpp',
         'src/modules/niri/workspaces.cpp',
+        'src/modules/niri/workspace.cpp',
     )
     man_files += files(
         'man/waybar-niri-language.5.scd',
