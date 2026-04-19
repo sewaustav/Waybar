@@ -68,7 +68,7 @@ void Workspaces::doUpdate() {
 
   for (const auto* ws_ptr : my_workspaces) {
     const auto& ws = *ws_ptr;
-    const auto ws_id = ws["id"].asUInt64();
+    const auto ws_id = ws.isMember("id") ? ws["id"].asUInt64() : 0;
 
     auto it = std::find_if(workspaces_.begin(), workspaces_.end(),
                            [ws_id](const std::unique_ptr<Workspace>& w) {
@@ -86,7 +86,7 @@ void Workspaces::doUpdate() {
 
   for (auto pos_it = my_workspaces.cbegin(); pos_it != my_workspaces.cend(); ++pos_it) {
     const auto& ws = **pos_it;
-    const auto ws_id = ws["id"].asUInt64();
+    const auto ws_id = ws.isMember("id") ? ws["id"].asUInt64() : 0;
 
     int pos = static_cast<int>(pos_it - my_workspaces.cbegin());
     if (alloutputs) {
